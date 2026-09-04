@@ -1,0 +1,9 @@
+# Copy to android/key.properties (gitignored) and fill in real values.
+# Generate a keystore (once), keep it offline + backed up securely:
+#
+#   keytool -genkey -v -keystore upload-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+#
+storePassword=REPLACE_ME
+keyPassword=REPLACE_ME
+keyAlias=upload
+storeFile=../upload-keystore.jks
