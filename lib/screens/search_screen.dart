@@ -6,7 +6,6 @@ import '../services/api_client.dart';
 import '../services/auth_state.dart';
 import '../theme/lesi_theme.dart';
 import '../widgets/common.dart';
-import '../widgets/feedback_section.dart';
 import '../widgets/filter_form.dart';
 import 'alerts_sheet.dart';
 
@@ -180,8 +179,6 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               ),
             ],
-            const SizedBox(height: 24),
-            const FeedbackSection(),
           ],
         ),
       ),

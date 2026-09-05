@@ -139,6 +139,13 @@ void _showGuestAccountSheet(BuildContext context) {
               TextButton(
                 onPressed: () {
                   Navigator.pop(ctx);
+                  Navigator.of(context).pushNamed('/feedback');
+                },
+                child: const Text('Share feedback'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(ctx);
                   Navigator.of(context).pushNamed('/legal');
                 },
                 child: const Text('About & Legal'),

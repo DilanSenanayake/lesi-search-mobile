@@ -4,12 +4,15 @@ import 'package:provider/provider.dart';
 import 'models/models.dart';
 import 'screens/alerts_sheet.dart';
 import 'screens/auth_screens.dart';
+import 'screens/feedback_screen.dart';
 import 'screens/legal_screens.dart';
 import 'screens/profile_screen.dart';
 import 'screens/results_screen.dart';
 import 'screens/search_screen.dart';
+import 'screens/terms_acceptance_screen.dart';
 import 'services/api_client.dart';
 import 'services/auth_state.dart';
+import 'services/legal_acceptance.dart';
 import 'services/token_storage.dart';
 import 'theme/lesi_theme.dart';
 
@@ -81,6 +84,9 @@ class LesiSearchApp extends StatelessWidget {
           case '/legal/privacy':
             page = const PrivacyPolicyScreen();
             break;
+          case '/feedback':
+            page = const FeedbackScreen();
+            break;
           case '/alerts/setup':
             final alertArgs =
                 settings.arguments as Map<String, dynamic>? ?? {};
@@ -124,15 +130,42 @@ class LesiSearchApp extends StatelessWidget {
   }
 }
 
-class _BootGate extends StatelessWidget {
+class _BootGate extends StatefulWidget {
   const _BootGate();
+
+  @override
+  State<_BootGate> createState() => _BootGateState();
+}
+
+class _BootGateState extends State<_BootGate> {
+  bool? _legalAccepted;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadLegal();
+  }
+
+  Future<void> _loadLegal() async {
+    final accepted = await LegalAcceptance.hasAcceptedCurrent();
+    if (!mounted) return;
+    setState(() => _legalAccepted = accepted);
+  }
 
   @override
   Widget build(BuildContext context) {
     final auth = context.watch<AuthState>();
-    if (auth.status == AuthStatus.unknown) {
+    if (auth.status == AuthStatus.unknown || _legalAccepted == null) {
       return const Scaffold(
         body: Center(child: CircularProgressIndicator()),
+      );
+    }
+    if (!_legalAccepted!) {
+      return TermsAcceptanceScreen(
+        onAccepted: () {
+          if (!mounted) return;
+          setState(() => _legalAccepted = true);
+        },
       );
     }
     // Do not gate the home screen on email OTP — OTP is only shown after

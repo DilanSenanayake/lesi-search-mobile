@@ -1,31 +1,22 @@
-/// Placeholder legal copy for in-app display.
+/// In-app Terms & Privacy copy for LesiSearch (personal project — no company).
 ///
-/// **Not legal advice.** Fill every TODO below before publishing to Play Store,
-/// then have a lawyer review. Host the same text publicly over HTTPS for
-/// Play Console's Privacy Policy URL.
+/// Not legal advice. Host the same text publicly over HTTPS for Play Console.
 class LegalCopy {
   LegalCopy._();
 
-  // TODO(legal): Replace with your legal entity / operator name.
-  static const String companyName = '[INSERT COMPANY / OPERATOR NAME]';
+  static const String operatorName = 'the independent developer of LesiSearch';
+  static const String contactEmail = 'diladws@gmail.com';
+  static const String jurisdiction = 'Sri Lanka';
 
-  // TODO(legal): Replace with a monitored support / privacy email.
-  static const String contactEmail = '[INSERT CONTACT EMAIL]';
-
-  // TODO(legal): Replace with governing law / venue (do not invent).
-  static const String jurisdiction = '[INSERT JURISDICTION]';
-
-  // TODO(legal): Confirm this public HTTPS deletion URL is live before Play submit.
   static const String accountDeletionWebUrl =
       'https://www.lesisearch.com/legal/#account-deletion';
 
-  // TODO(legal): Bump when you publish revised legal text (keep in sync with website).
   static const String lastUpdated = '2026-09-05';
 
-  // TODO(release): Keep in sync with pubspec.yaml `version:` (name before `+`).
+  /// Keep in sync with pubspec.yaml `version:` (name before `+`).
   static const String appVersionName = '1.0.0';
 
-  // TODO(release): Keep in sync with pubspec.yaml build number (after `+`); bump every Play upload.
+  /// Keep in sync with pubspec.yaml build number (after `+`); bump every Play upload.
   static const int appVersionCode = 1;
 
   static String get versionLabel =>
@@ -35,10 +26,8 @@ class LegalCopy {
 # Terms & Conditions
 
 **Last updated:** $lastUpdated  
-**Operator:** $companyName  
+**Service:** LesiSearch (personal project)  
 **Contact:** $contactEmail
-
-> Draft placeholder for Play Store readiness. Replace all `[INSERT …]` markers and obtain legal review before relying on this text.
 
 ## 1. Acceptance of Terms
 
@@ -62,7 +51,7 @@ You must not:
 
 ## 4. Intellectual Property
 
-LesiSearch branding, app UI, and original service materials are owned by $companyName or its licensors. Third-party listing content remains owned by those third parties.
+LesiSearch branding, app UI, and original service materials are owned by $operatorName. Third-party listing content remains owned by those third parties.
 
 ## 5. AI Rankings Disclaimer
 
@@ -70,40 +59,32 @@ Rankings and summaries are automated and may be incomplete, outdated, or incorre
 
 ## 6. Limitation of Liability
 
-TO THE MAXIMUM EXTENT PERMITTED BY LAW, $companyName WILL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM USE OF THE SERVICE.
-
-*[INSERT: liability cap / mandatory consumer-law wording if counsel advises]*
+To the maximum extent permitted by law, $operatorName will not be liable for indirect, incidental, special, consequential, or punitive damages arising from use of the service. LesiSearch is provided "as is" without warranties of any kind.
 
 ## 7. Termination
 
-We may suspend or terminate access for violations or legal risk. You may delete your account in the app (**Profile → Delete account**) or via our web instructions at $accountDeletionWebUrl.
+Access may be suspended or terminated for violations or legal risk. You may delete your account in the app (**Profile → Delete account**) or via $accountDeletionWebUrl.
 
 ## 8. Governing Law
 
 These Terms are governed by the laws of $jurisdiction, except where mandatory consumer protections apply.
 
-*[INSERT: dispute venue / arbitration process with counsel]*
-
 ## 9. Changes to Terms
 
-We may update these Terms. The **Last updated** date above will change when we publish revisions. Continued use after changes constitutes acceptance where permitted by law.
+These Terms may be updated from time to time. The **Last updated** date above will change when revisions are published. Continued use after changes constitutes acceptance where permitted by law.
 
 ## 10. Contact
 
-**$companyName**  
-Email: $contactEmail
-
-*[INSERT postal address if required in your jurisdiction]*
+Email: $contactEmail  
+Website: https://www.lesisearch.com
 ''';
 
   static String get privacyMarkdown => '''
 # Privacy Policy
 
 **Last updated:** $lastUpdated  
-**Operator:** $companyName  
+**Service:** LesiSearch (personal project)  
 **Privacy contact:** $contactEmail
-
-> Draft placeholder describing practices inferred from the current LesiSearch app and backend. Replace all `[INSERT …]` markers and obtain professional review before publishing.
 
 ## 1. What Data We Collect
 
@@ -126,7 +107,7 @@ We do **not** request contacts, precise GPS, camera, microphone, SMS, or adverti
 
 ## 3. Third-Party Services / SDKs
 
-**In this mobile app binary (current codebase):**
+**In this mobile app binary:**
 
 - HTTP API client (`http`) to LesiSearch backend
 - Secure token storage (`flutter_secure_storage`)
@@ -135,9 +116,9 @@ We do **not** request contacts, precise GPS, camera, microphone, SMS, or adverti
 - In-app browser (`webview_flutter`) for third-party listings
 - Link opener (`url_launcher`)
 
-**No advertising SDK, Crashlytics, or product-analytics SDK is embedded in the app today.**
+**No advertising SDK, Crashlytics, or product-analytics SDK is embedded in the app.**
 
-**Backend / processors (server-side, not ad SDKs in the app):**
+**Backend / processors (server-side):**
 
 - Firebase Authentication / Google Identity Toolkit (sign-in)
 - Email delivery (Brevo) for OTP and alerts
@@ -148,35 +129,34 @@ When you open a listing, third-party sites (e.g. ikman.lk, riyasewana.com) apply
 
 ## 4. Data Retention
 
-*[INSERT retention periods — e.g. accounts until deletion; guest alerts until expiry; server logs for X days]*
+- Account and profile data are kept until you delete your account
+- Guest alert subscriptions are kept until they expire or are removed
+- Server logs may be retained for a limited period for security and operations
+- Access tokens expire after a configured TTL on the backend
 
-Access tokens expire after a configured TTL on the backend. You can delete your account in-app at any time.
+You can delete your account in-app at any time.
 
 ## 5. Your Rights
 
-Subject to applicable law, you may request access, correction, or deletion by emailing $contactEmail, and/or using **Profile → Delete account**.
+You may request access, correction, or deletion by emailing $contactEmail, and/or using **Profile → Delete account**.
 
 Web deletion instructions: $accountDeletionWebUrl
 
 ## 6. Children's Privacy
 
-LesiSearch is not directed to children under *[INSERT AGE, e.g. 13]*. We do not knowingly collect personal information from children.
+LesiSearch is not directed to children under 13. We do not knowingly collect personal information from children. If you believe a child has provided personal data, contact $contactEmail and it will be removed.
 
-*[INSERT: confirm age gate for COPPA / local law. This app is not designed for children.]*
+## 7. Where Data Is Processed
 
-## 7. International Transfers
-
-*[INSERT where data is processed — Sri Lanka / cloud regions / other]*
+Data is processed to operate LesiSearch for users in Sri Lanka, using cloud hosting and the third-party processors listed above (which may process data in other regions).
 
 ## 8. Changes
 
-We may update this policy. The **Last updated** date above will change when updates are published.
+This policy may be updated. The **Last updated** date above will change when updates are published.
 
 ## 9. Contact
 
-**$companyName**  
-Email: $contactEmail
-
-*[INSERT postal address if required]*
+Email: $contactEmail  
+Website: https://www.lesisearch.com
 ''';
 }

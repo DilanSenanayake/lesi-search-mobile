@@ -453,6 +453,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: const Text('Open About & Legal'),
           ),
           TextButton(
+            onPressed: () => Navigator.of(context).pushNamed('/feedback'),
+            child: const Text('Share feedback'),
+          ),
+          TextButton(
             onPressed: () => Navigator.of(context).pushNamed('/legal/privacy'),
             child: const Text('Privacy Policy'),
           ),

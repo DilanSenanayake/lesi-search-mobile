@@ -68,8 +68,15 @@ class AboutLegalScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 24),
+          Text('Help improve LesiSearch', style: textTheme.titleMedium),
+          const SizedBox(height: 8),
+          _LegalTile(
+            icon: Icons.feedback_outlined,
+            title: 'Share your feedback',
+            onTap: () => Navigator.of(context).pushNamed('/feedback'),
+          ),
+          const SizedBox(height: 24),
           Text(
-            // TODO(legal): Replace contactEmail in LegalCopy before release.
             'Questions: ${LegalCopy.contactEmail}',
             style: textTheme.bodySmall?.copyWith(color: LesiTheme.muted),
           ),
